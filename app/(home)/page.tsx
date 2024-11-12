@@ -1,6 +1,7 @@
 import * as cheerio from "cheerio";
-import { API_URL } from "../contants";
+import { API_URL } from "../../contants";
 import axios from "axios";
+import styles from "../../styles/home-list.module.css";
 
 interface ContentType {
   seq: number;
@@ -35,14 +36,37 @@ export default async function Home() {
   const data = await getData(API_URL);
   // jsquery map이랑 javascript의 map은 다르다
   return (
-    <>
-      {data.map((a, i) => (
-        <div>
-          <span>{a.seq}</span>
-          <h3 key={i}>{a.title}</h3>
-        </div>
-      ))}
-    </>
+    <div className={styles.listTable}>
+      <table>
+        <colgroup>
+          <col style={{ width: "10%" }} />
+          <col style={{ width: "auto" }} />
+          <col style={{ width: "160px" }} />
+          <col style={{ width: "100px" }} />
+          <col style={{ width: "80px" }} />
+        </colgroup>
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>담당부서</th>
+            <th>등록일</th>
+            <th>조회수</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((a, i) => (
+            <tr key={i}>
+              <td>{a.seq}</td>
+              <td className={styles.txtAL}>{a.title}</td>
+              <td>{a.dept}</td>
+              <td>{a.date}</td>
+              <td>{a.views}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
   //return <div>{data}</div>;
 }

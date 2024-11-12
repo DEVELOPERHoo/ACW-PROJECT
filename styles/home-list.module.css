@@ -1,0 +1,32 @@
+.listTable {
+  border-top: 2px solid #58b530;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.listTable table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.listTable table thead th,
+.listTable table tbody td {
+  text-align: center;
+  padding: 11px 10px;
+  line-height: 26px;
+}
+
+.listTable table thead th {
+  line-height: 22px;
+  font-family: "NanumGothic";
+  color: #333;
+  background: #f4f7e9;
+  font-weight: bold;
+}
+
+.listTable table tbody td {
+  border-top: 1px solid #e1e1e1;
+}
+
+.txtAL {
+  text-align: left !important;
+}
