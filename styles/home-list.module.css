@@ -27,6 +27,15 @@
   border-top: 1px solid #e1e1e1;
 }
 
+.listTable table tbody td a {
+  display: block;
+  color: #333;
+}
+
+.listTable table tbody td a:hover {
+  color: #26742d;
+}
+
 .txtAL {
   text-align: left !important;
 }
