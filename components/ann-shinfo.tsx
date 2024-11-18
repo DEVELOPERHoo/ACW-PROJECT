@@ -10,7 +10,7 @@ interface ContentType {
   seq: number;
 }
 
-export default async function GetData(API_URL: string) {
+export default async function ShGetData(API_URL: string) {
   try {
     const html = await axios.get(API_URL);
     const $ = cheerio.load(html.data);

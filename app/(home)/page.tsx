@@ -1,11 +1,13 @@
-import VIEW_URL, { API_URL } from "../../contants";
+import SH_VIEW_URL, { SH_API_URL, LH_API_URL } from "../../contants";
 import styles from "../../styles/home-list.module.css";
-import GetData from "../../components/ann-info";
+import ShGetData from "../../components/ann-shinfo";
+import LhGetData from "../../components/ann-lhinfo";
 
 export default async function Home() {
   //const data = await getData(API_URL);
-  const data = await GetData(API_URL);
-  console.log(data);
+  const shdata = await ShGetData(SH_API_URL);
+  const lhdata = await LhGetData(LH_API_URL);
+  console.log(lhdata);
   // jsquery map이랑 javascript의 map은 다르다
   return (
     <div className={styles.listTable}>
@@ -27,11 +29,11 @@ export default async function Home() {
           </tr>
         </thead>
         <tbody>
-          {data.map((a, i) => (
+          {shdata.map((a, i) => (
             <tr key={i}>
               <td>{a.num}</td>
               <td className={styles.txtAL}>
-                <a href={VIEW_URL(a.seq)}>{a.title}</a>
+                <a href={SH_VIEW_URL(a.seq)}>{a.title}</a>
               </td>
               <td>{a.dept}</td>
               <td>{a.date}</td>
